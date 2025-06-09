@@ -1,0 +1,8 @@
+<h2><%= quarter ? 'Edit' : 'Add' %> Quarter</h2>
+<form method="POST" action="<%= quarter ? '/admin/quarters/edit/' + quarter._id : '/admin/quarters/add' %>">
+  <label>Name</label><input name="name" value="<%= quarter?.name || '' %>" required /><br>
+  <label>Start Date</label><input type="date" name="startDate" value="<%= quarter?.startDate?.toISOString().split('T')[0] || '' %>" required /><br>
+  <label>End Date</label><input type="date" name="endDate" value="<%= quarter?.endDate?.toISOString().split('T')[0] || '' %>" required /><br>
+  <label>Active</label><input type="checkbox" name="isActive" <%= quarter?.isActive ? 'checked' : '' %> /><br>
+  <button type="submit">Save</button>
+</form>

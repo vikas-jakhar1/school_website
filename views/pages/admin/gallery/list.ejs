@@ -1,0 +1,19 @@
+<h2>Manage Gallery</h2>
+<form method="POST" action="/admin/gallery/upload" enctype="multipart/form-data">
+  <input name="caption" placeholder="Caption" />
+  <input type="file" name="image" accept="image/*" required />
+  <button type="submit">Upload</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="5">
+  <tr><th>Image</th><th>Caption</th><th>Action</th></tr>
+  <% images.forEach(img => { %>
+    <tr>
+      <td><img src="/uploads/gallery/<%= img.image %>" width="120"/></td>
+      <td><%= img.caption %></td>
+      <td><a href="/admin/gallery/delete/<%= img._id %>" onclick="return confirm('Delete this image?')">Delete</a></td>
+    </tr>
+  <% }) %>
+</table>

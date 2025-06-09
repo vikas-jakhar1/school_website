@@ -1,0 +1,8 @@
+<h2><%= cls ? 'Edit' : 'Add' %> Class</h2>
+<form method="POST" action="<%= cls ? '/admin/classes/edit/' + cls._id : '/admin/classes/add' %>">
+  <label>Class Name</label>
+  <input type="text" name="className" value="<%= cls ? cls.className : '' %>" required /><br>
+  <label>Description</label>
+  <textarea name="description"><%= cls ? cls.description : '' %></textarea><br>
+  <button type="submit">Save</button>
+</form>

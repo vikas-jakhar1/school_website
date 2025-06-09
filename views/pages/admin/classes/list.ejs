@@ -1,0 +1,15 @@
+<h2>Class List</h2>
+<a href="/admin/classes/add">Add Class</a>
+<table border="1">
+  <tr><th>Class Name</th><th>Description</th><th>Actions</th></tr>
+  <% classes.forEach(cls => { %>
+    <tr>
+      <td><%= cls.className %></td>
+      <td><%= cls.description || '-' %></td>
+      <td>
+        <a href="/admin/classes/edit/<%= cls._id %>">Edit</a> |
+        <a href="/admin/classes/delete/<%= cls._id %>">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

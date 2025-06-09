@@ -1,0 +1,19 @@
+<h2>Slider Images</h2>
+<form method="POST" action="/admin/sliders/upload" enctype="multipart/form-data">
+  <input name="title" placeholder="Slider title" required />
+  <input type="file" name="image" accept="image/*" required />
+  <button type="submit">Upload</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="5">
+  <tr><th>Image</th><th>Title</th><th>Action</th></tr>
+  <% sliders.forEach(s => { %>
+    <tr>
+      <td><img src="/uploads/sliders/<%= s.image %>" width="120"/></td>
+      <td><%= s.title %></td>
+      <td><a href="/admin/sliders/delete/<%= s._id %>" onclick="return confirm('Delete this image?')">Delete</a></td>
+    </tr>
+  <% }) %>
+</table>

@@ -1,0 +1,11 @@
+<h2>Fee Types</h2>
+<form method="POST">
+  <input name="name" placeholder="Fee Name" required />
+  <input name="amount" type="number" placeholder="Amount" required />
+  <button type="submit">Add</button>
+</form>
+<ul>
+  <% feeTypes.forEach(f => { %>
+    <li><%= f.name %> - ₹<%= f.amount %></li>
+  <% }) %>
+</ul>

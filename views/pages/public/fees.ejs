@@ -1,0 +1,21 @@
+<h2>Fee Structure</h2>
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>Class</th>
+    <th>Admission Fee</th>
+    <th>Tuition Fee</th>
+    <th>Term Fee</th>
+    <th>Total</th>
+    <th>Note</th>
+  </tr>
+  <% fees.forEach(f => { %>
+    <tr>
+      <td><%= f.className %></td>
+      <td>₹<%= f.admissionFee %></td>
+      <td>₹<%= f.tuitionFee %></td>
+      <td>₹<%= f.termFee %></td>
+      <td>₹<%= f.totalFee %></td>
+      <td><%= f.note %></td>
+    </tr>
+  <% }) %>
+</table>

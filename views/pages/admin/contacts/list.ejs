@@ -1,0 +1,16 @@
+<h2>Contact Queries</h2>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Date</th><th>Action</th>
+  </tr>
+  <% queries.forEach(q => { %>
+    <tr>
+      <td><%= q.name %></td>
+      <td><%= q.email %></td>
+      <td><%= q.phone %></td>
+      <td><%= q.message %></td>
+      <td><%= q.date.toDateString() %></td>
+      <td><a href="/admin/contacts/delete/<%= q._id %>" onclick="return confirm('Delete this query?')">Delete</a></td>
+    </tr>
+  <% }) %>
+</table>

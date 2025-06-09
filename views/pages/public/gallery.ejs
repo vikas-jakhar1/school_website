@@ -1,0 +1,9 @@
+<h2>Photo Gallery</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 15px;">
+  <% images.forEach(img => { %>
+    <div style="width: 30%;">
+      <img src="/uploads/gallery/<%= img.image %>" style="width: 100%; border: 1px solid #ccc;" />
+      <p style="text-align: center;"><%= img.caption %></p>
+    </div>
+  <% }) %>
+</div>

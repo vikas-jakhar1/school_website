@@ -1,0 +1,15 @@
+<h2>Contact Us</h2>
+<% if (req.query.success) { %>
+  <p style="color: green;">Query submitted successfully.</p>
+<% } %>
+<form method="POST" action="/contact">
+  <label>Name:</label>
+  <input name="name" required /><br/>
+  <label>Email:</label>
+  <input name="email" type="email" required /><br/>
+  <label>Phone:</label>
+  <input name="phone" /><br/>
+  <label>Message:</label>
+  <textarea name="message" required></textarea><br/>
+  <button type="submit">Send</button>
+</form>

@@ -1,0 +1,18 @@
+<h2>Student Fee Records</h2>
+<table border="1">
+  <tr><th>Student</th><th>Class</th><th>Quarter</th><th>Type</th><th>Status</th><th>Action</th></tr>
+  <% assignedFees.forEach(f => { %>
+    <tr>
+      <td><%= f.student.name %></td>
+      <td><%= f.classId.className %></td>
+      <td><%= f.quarterId.name %></td>
+      <td><%= f.feeType.name %> - ₹<%= f.feeType.amount %></td>
+      <td><%= f.status %></td>
+      <td>
+        <% if (f.status === 'Unpaid') { %>
+          <a href="/admin/fees/mark-paid/<%= f._id %>">Mark Paid</a>
+        <% } else { %> Paid on <%= f.paidAt.toDateString() %> <% } %>
+      </td>
+    </tr>
+  <% }) %>
+</table>

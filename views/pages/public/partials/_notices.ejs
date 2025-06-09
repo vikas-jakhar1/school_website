@@ -1,0 +1,7 @@
+<h3>Latest Notices</h3>
+<ul>
+  <% notices.forEach(n => { %>
+    <li><strong><%= n.title %></strong> - <%= n.date.toDateString() %></li>
+    <p><%= n.content %></p>
+  <% }) %>
+</ul>

@@ -1,0 +1,7 @@
+<h2>Assign Fee</h2>
+<form method="POST">
+  <select name="classId"><% classes.forEach(c => { %><option value="<%= c._id %>"><%= c.className %></option><% }) %></select>
+  <select name="quarterId"><% quarters.forEach(q => { %><option value="<%= q._id %>"><%= q.name %></option><% }) %></select>
+  <select name="feeTypeId"><% feeTypes.forEach(f => { %><option value="<%= f._id %>"><%= f.name %> - ₹<%= f.amount %></option><% }) %></select>
+  <button type="submit">Assign</button>
+</form>

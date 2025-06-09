@@ -1,0 +1,17 @@
+<h2>Quarters</h2>
+<a href="/admin/quarters/add">Add Quarter</a>
+<table border="1">
+  <tr><th>Name</th><th>Start</th><th>End</th><th>Active</th><th>Actions</th></tr>
+  <% quarters.forEach(q => { %>
+    <tr>
+      <td><%= q.name %></td>
+      <td><%= q.startDate.toDateString() %></td>
+      <td><%= q.endDate.toDateString() %></td>
+      <td><%= q.isActive ? 'Yes' : 'No' %></td>
+      <td>
+        <a href="/admin/quarters/edit/<%= q._id %>">Edit</a> |
+        <a href="/admin/quarters/delete/<%= q._id %>">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

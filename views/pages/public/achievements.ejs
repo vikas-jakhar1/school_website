@@ -1,0 +1,12 @@
+<h2>Our Achievements</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+  <% achievements.forEach(a => { %>
+    <div style="width: 30%; border: 1px solid #ddd; padding: 10px;">
+      <% if (a.image) { %>
+        <img src="/uploads/achievements/<%= a.image %>" style="width: 100%; height: auto;" />
+      <% } %>
+      <h3><%= a.title %></h3>
+      <p><%= a.description %></p>
+    </div>
+  <% }) %>
+</div>

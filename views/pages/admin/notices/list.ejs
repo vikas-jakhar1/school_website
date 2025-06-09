@@ -1,0 +1,16 @@
+<h2>Notice Management</h2>
+<a href="/admin/notices/new">Add New Notice</a>
+<table border="1">
+  <tr><th>Title</th><th>Date</th><th>Status</th><th>Actions</th></tr>
+  <% notices.forEach(n => { %>
+    <tr>
+      <td><%= n.title %></td>
+      <td><%= n.date.toDateString() %></td>
+      <td><%= n.isActive ? 'Active' : 'Inactive' %></td>
+      <td>
+        <a href="/admin/notices/edit/<%= n._id %>">Edit</a> |
+        <a href="/admin/notices/delete/<%= n._id %>" onclick="return confirm('Delete this notice?')">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

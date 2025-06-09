@@ -1,0 +1,28 @@
+<h2>Manage Fee Display</h2>
+<form method="POST" action="/admin/fee-display/upload">
+  <input name="className" placeholder="Class Name" required />
+  <input name="admissionFee" placeholder="Admission Fee" type="number" required />
+  <input name="tuitionFee" placeholder="Tuition Fee" type="number" required />
+  <input name="termFee" placeholder="Term Fee" type="number" required />
+  <input name="note" placeholder="Optional Note" />
+  <button type="submit">Add/Update</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Class</th><th>Admission</th><th>Tuition</th><th>Term</th><th>Total</th><th>Note</th><th>Action</th>
+  </tr>
+  <% fees.forEach(f => { %>
+    <tr>
+      <td><%= f.className %></td>
+      <td>₹<%= f.admissionFee %></td>
+      <td>₹<%= f.tuitionFee %></td>
+      <td>₹<%= f.termFee %></td>
+      <td>₹<%= f.totalFee %></td>
+      <td><%= f.note %></td>
+      <td><a href="/admin/fee-display/delete/<%= f._id %>" onclick="return confirm('Delete this entry?')">Delete</a></td>
+    </tr>
+  <% }) %>
+</table>

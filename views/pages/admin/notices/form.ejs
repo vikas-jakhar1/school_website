@@ -1,0 +1,12 @@
+<h2><%= notice._id ? 'Edit' : 'Add' %> Notice</h2>
+<form method="POST" action="<%= notice._id ? '/admin/notices/edit/' + notice._id : '/admin/notices/new' %>">
+  <label>Title:</label>
+  <input name="title" value="<%= notice.title || '' %>" required /><br/>
+  <label>Content:</label>
+  <textarea name="content" rows="4"><%= notice.content || '' %></textarea><br/>
+  <label>
+    <input type="checkbox" name="isActive" <%= notice.isActive ? 'checked' : '' %> />
+    Active
+  </label><br/>
+  <button type="submit">Save</button>
+</form>

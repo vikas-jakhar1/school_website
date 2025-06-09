@@ -1,0 +1,41 @@
+<h2>Report Management</h2>
+<form method="POST" action="/admin/reports/generate">
+  <label>Class:</label>
+  <select name="classId">
+    <option value="">All</option>
+    <% classes.forEach(c => { %>
+      <option value="<%= c._id %>" <%= selectedClass == c._id ? 'selected' : '' %>><%= c.className %></option>
+    <% }) %>
+  </select>
+
+  <label>Quarter:</label>
+  <select name="quarterId">
+    <option value="">All</option>
+    <% quarters.forEach(q => { %>
+      <option value="<%= q._id %>" <%= selectedQuarter == q._id ? 'selected' : '' %>><%= q.name %></option>
+    <% }) %>
+  </select>
+
+  <button type="submit" name="exportType" value="view">View</button>
+  <button type="submit" name="exportType" value="csv">Download CSV</button>
+</form>
+
+<% if (data && data.length > 0) { %>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Student</th><th>Class</th><th>Fee Type</th>
+      <th>Amount</th><th>Quarter</th><th>Status</th><th>Paid At</th>
+    </tr>
+    <% data.forEach(r => { %>
+      <tr>
+        <td><%= r.student.name %></td>
+        <td><%= r.classId.className %></td>
+        <td><%= r.feeType.name %></td>
+        <td>₹<%= r.feeType.amount %></td>
+        <td><%= r.quarterId.name %></td>
+        <td><%= r.status %></td>
+        <td><%= r.paidAt ? r.paidAt.toDateString() : '-' %></td>
+      </tr>
+    <% }) %>
+  </table>
+<% } %>

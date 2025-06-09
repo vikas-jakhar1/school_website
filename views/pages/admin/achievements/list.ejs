@@ -1,0 +1,21 @@
+<h2>Achievements</h2>
+<form method="POST" action="/admin/achievements/upload" enctype="multipart/form-data">
+  <input name="title" placeholder="Title" required />
+  <textarea name="description" placeholder="Short description" required></textarea>
+  <input type="file" name="image" accept="image/*" />
+  <button type="submit">Add Achievement</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="5">
+  <tr><th>Image</th><th>Title</th><th>Description</th><th>Action</th></tr>
+  <% achievements.forEach(a => { %>
+    <tr>
+      <td><% if (a.image) { %><img src="/uploads/achievements/<%= a.image %>" width="100" /><% } %></td>
+      <td><%= a.title %></td>
+      <td><%= a.description %></td>
+      <td><a href="/admin/achievements/delete/<%= a._id %>" onclick="return confirm('Delete this achievement?')">Delete</a></td>
+    </tr>
+  <% }) %>
+</table>

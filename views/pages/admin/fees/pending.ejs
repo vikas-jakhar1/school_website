@@ -1,0 +1,33 @@
+<h2>Pending Fees</h2>
+<form method="POST">
+  <label>Class:</label>
+  <select name="classId">
+    <% classes.forEach(c => { %>
+      <option value="<%= c._id %>" <%= selectedClass == c._id ? 'selected' : '' %>><%= c.className %></option>
+    <% }) %>
+  </select>
+  <label>Quarter:</label>
+  <select name="quarterId">
+    <% quarters.forEach(q => { %>
+      <option value="<%= q._id %>" <%= selectedQuarter == q._id ? 'selected' : '' %>><%= q.name %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Show</button>
+</form>
+
+<% if (unpaidFees.length > 0) { %>
+  <form method="POST" action="/admin/pending-fees/mark-paid">
+    <table border="1">
+      <tr><th>Select</th><th>Student</th><th>Fee Type</th><th>Amount</th></tr>
+      <% unpaidFees.forEach(fee => { %>
+        <tr>
+          <td><input type="checkbox" name="feeIds" value="<%= fee._id %>" /></td>
+          <td><%= fee.student.name %></td>
+          <td><%= fee.feeType.name %></td>
+          <td>₹<%= fee.feeType.amount %></td>
+        </tr>
+      <% }) %>
+    </table>
+    <button type="submit">Mark Selected as Paid</button>
+  </form>
+<% } %>
